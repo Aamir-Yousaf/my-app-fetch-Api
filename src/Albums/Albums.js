@@ -39,6 +39,7 @@ export default function Albums() {
         <Card
           style={{
             width: "18rem",
+            backgroundColor: "#9DD4EC",
           }}
         >
           <CardBody>
