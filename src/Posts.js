@@ -6,6 +6,7 @@ import {
   Card,
   CardBody,
   CardHeader,
+  CardSubtitle, // Corrected from CardSubTitle
 } from "reactstrap";
 
 export default function Posts() {
@@ -14,8 +15,8 @@ export default function Posts() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch data from API or database
-    fetch("https://jsonplaceholder.typicode.com/albums")
+    // Fetch data from API
+    fetch("https://jsonplaceholder.typicode.com/posts") // Removed the leading space in the URL
       .then((res) => res.json())
       .then((data) => {
         setPostsList(data);
@@ -31,7 +32,7 @@ export default function Posts() {
   return (
     <div>
       {loading ? (
-        <div>
+        <div className="d-flex justify-content-center my-4">
           <Spinner color="primary" size="sm">
             Loading...
           </Spinner>
@@ -39,33 +40,35 @@ export default function Posts() {
             Loading...
           </Spinner>
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
+
       {postsList.map((item, index) => (
         <Card
+          key={item.id} // Added a key prop for each Card
           style={{
             width: "18rem",
+            marginBottom: "1rem",
             backgroundColor: "#9DD4EC",
           }}
         >
+          <CardHeader>
+            <span className="text-primary">{index + 1}.</span> {item.title}
+          </CardHeader>
           <CardBody>
-            <CardHeader>
-              <span className="text-primary">{index + 1}).</span> {item.title}
-            </CardHeader>
-            <CardSubTitle>
-              
-            </CardSubTitle>
+            <CardSubtitle className="mb-2 text-muted" tag="h6">
+              {item.body}
+            </CardSubtitle>
           </CardBody>
         </Card>
       ))}
-      {error ? (
+
+      {error && (
         <div className="p-3 bg-danger my-2 rounded">
           <Toast>
             <ToastHeader>{error}</ToastHeader>
-          </Toast>{" "}
+          </Toast>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
