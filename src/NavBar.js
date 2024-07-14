@@ -6,11 +6,10 @@ import {
   Nav,
   NavItem,
   NavLink,
-  
   NavbarText,
 } from "reactstrap";
-import {Link} from "react-router-dom";
-export default function NavBar(){
+import { Link } from "react-router-dom";
+export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -27,8 +26,8 @@ export default function NavBar(){
               </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to={"/post"}>
-                Post
+              <Link className="nav-link" to={"/Posts"}>
+                Posts
               </Link>
             </NavItem>
             <NavItem>
@@ -43,4 +42,3 @@ export default function NavBar(){
     </div>
   );
 }
-
