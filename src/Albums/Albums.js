@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Spinner, Toast, ToastHeader, Card, CardBody, CardHeader } from "reactstrap";
+import { Link } from "react-router-dom";
+
+
 
 export default function Albums() {
   const [albumsList, setAlbumsList] = useState([]);
@@ -36,18 +39,20 @@ export default function Albums() {
         ""
       )}
       {albumsList.map((item, index) => (
-        <Card
-          style={{
-            width: "18rem",
-            backgroundColor: "#9DD4EC",
-          }}
-        >
-          <CardBody>
-            <CardHeader>
-              <span className="text-primary">{index + 1}).</span> {item.title}
-            </CardHeader>
-          </CardBody>
-        </Card>
+        <Link key={`${index}`} to={"/AlbumsDetails/" + item?.id}>
+          <Card
+            style={{
+              width: "18rem",
+              backgroundColor: "#9DD4EC",
+            }}
+          >
+            <CardBody>
+              <CardHeader>
+                <span className="text-primary">{index + 1}).</span> {item.title}
+              </CardHeader>
+            </CardBody>
+          </Card>
+        </Link>
       ))}
       {error ? (
         <div className="p-3 bg-danger my-2 rounded">

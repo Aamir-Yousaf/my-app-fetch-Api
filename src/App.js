@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Albums from "./Albums/Albums";
 import Posts from "./Posts";
+import AlbumsDetails  from "./AlbumsDetails";
 
 function App() {
   return (
@@ -10,16 +11,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Albums />} />
-        <Route path="/Posts" element={<Posts />} /> 
-        <Route
-          path="/about"
-          element={
-            <div>
-              <p>This is the about page</p>
-            </div>
-          }
-        />{" "}
-        {/* Changed path to /about */}
+        <Route path="/Posts" element={<Posts />} />
+        <Route path="/AlbumsDetails:id" element={<AlbumsDetails />} />
       </Routes>
     </div>
   );
