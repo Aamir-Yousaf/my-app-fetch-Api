@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Albums from "./Albums/Albums";
 import Posts from "./Posts";
-import AlbumsDetails  from "./AlbumsDetails";
+import AlbumsDetails from "./AlbumsDetails";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Albums />} />
         <Route path="/Posts" element={<Posts />} />
-        <Route path="/AlbumsDetails:id" element={<AlbumsDetails />} />
+        <Route path="/AlbumsDetails/:id" element={<AlbumsDetails />} />
       </Routes>
     </div>
   );

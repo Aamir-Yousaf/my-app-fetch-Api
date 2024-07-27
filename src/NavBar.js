@@ -35,7 +35,6 @@ export default function NavBar() {
               </Link>
             </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>
